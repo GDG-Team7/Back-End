@@ -13,6 +13,15 @@ app.use(cors({
 //app에 라우트 파일을 연결해줍니다.
 require("./routers")(app);
 
-app.listen(5000, () => {
+const httpServer = require("http").createServer(app);
+const io = require("socket.io")(httpServer, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"]
+  }
+});
+require("./socketServer")(io);
+
+httpServer.listen(5000, () => {
   console.log(`Ready, URL : http://localhost:5000`);
 })
