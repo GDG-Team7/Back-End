@@ -1,7 +1,6 @@
 {
   "name": "gdg-campus-summer",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,5 +21,15 @@
     "pm2": "^5.1.0",
     "sequelize": "^6.6.5",
     "sequelize-cli": "^6.2.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mactto/GDG-Back-End.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mactto/GDG-Back-End/issues"
+  },
+  "homepage": "https://github.com/Mactto/GDG-Back-End#readme",
+  "description": ""
 }
