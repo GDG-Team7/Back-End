@@ -2,7 +2,6 @@ const fs = require("fs");
 const path = require("path");
 const basename = path.basename(__filename);
 
-
 module.exports = (app) => {
   const routers = {};
 
