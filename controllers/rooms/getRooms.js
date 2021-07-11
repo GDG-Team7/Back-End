@@ -1,10 +1,11 @@
 const { room, Sequelize } = require("../../models");
 module.exports = async (req, res) => {
-  const { member_limit, end_time, language } = req.query;
+  const { member_limit, language, annual_min, annual_max } = req.query;
 
   try {
     const findOptions = {};
 
+    findOptions["end_time"][Sequelize.Op.gte] = Date.now();
     if (member_limit) {
       findOptions["member_limit"] = member_limit;
     }
