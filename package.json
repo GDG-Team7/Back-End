@@ -1,0 +1,27 @@
+{
+  "name": "gdg-campus-summer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "init": "sequelize-cli db:create && sequelize-cli db:migrate"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.9",
+    "pm2": "^5.1.0",
+    "sequelize": "^6.6.5",
+    "sequelize-cli": "^6.2.0",
+    "socket.io": "^4.1.3"
+  }
+}

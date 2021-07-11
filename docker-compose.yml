@@ -1,0 +1,38 @@
+version: "3.7"
+volumes:
+  mysql-data:
+services:
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DEV_DATABASE}
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 10
+    volumes:
+      - mysql-data:/var/lib/mysql
+  app:
+    image: node
+    build:
+      context: .
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    ports:
+      - 5000:5000
+    environment:
+      GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID}
+      GITHUB_CLIENT_SECRET: ${GITHUB_CLIENT_SECRET}
+
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_DEV_DATABASE: ${DB_DEV_DATABASE}
+      DB_PRODUCTION_DATABASE: ${DB_PRODUCTION_DATABASE}
+
+      ACCESS_SECRET: ${ACCESS_SECRET}
+    depends_on:
+      db:
+        condition: service_healthy
