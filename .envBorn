@@ -1,10 +1,14 @@
 GITHUB_CLIENT_ID=
 GITHUB_CLIENT_SECRET=
 
-DB_HOST=
-DB_USER=
 DB_PASSWORD=
 DB_DEV_DATABASE=mogagko_dev
 DB_PRODUCTION_DATABASE=mogagko
 
 ACCESS_SECRET=
+
+
+//도커가 아닌 직접 실행하려면 아래 항목도 작성해야 합니다.
+//도커를 사용하면 위의 환경변수만 설정하면 됩니다.
+DB_HOST=
+DB_USER=
