@@ -3,7 +3,6 @@ module.exports = async (req, res) => {
   // 미들웨어 설정이 안되어 있어 별도 처리
   const authData = 'test1029';
   const { title, member_limit, end_time, language, annual_min, annual_max, platform_type, platform_url } = req.body;
-  console.log(req.body)
   // 이미지 첨부 디자인이 없어 공백처리
   const image_url = '';
   const user_id = authData.id;
