@@ -1,8 +1,11 @@
 const { room, platform } = require("../../models");
 module.exports = async (req, res) => {
-  const authData = req.authData;
+  // 미들웨어 설정이 안되어 있어 별도 처리
+  const authData = 'test1029';
   const { title, member_limit, end_time, language, annual_min, annual_max, platform_type, platform_url } = req.body;
-  const image_url = req.file.path;
+  console.log(req.body)
+  // 이미지 첨부 디자인이 없어 공백처리
+  const image_url = '';
   const user_id = authData.id;
   
   if (
@@ -10,8 +13,8 @@ module.exports = async (req, res) => {
     !title ||
     !member_limit ||
     !language ||
-    !annual_min ||
-    !annual_max
+    isNaN(annual_min) ||
+    isNaN(annual_max)
   ) {
     return res.status(400).json({ message: "Insufficient info" });
   }
