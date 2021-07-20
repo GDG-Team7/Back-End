@@ -10,16 +10,16 @@ module.exports = async (req, res) => {
       }
     });
 
-    if (!userInfo) {
+    if (userInfo) {
+      const accessToken = jwt.sign(
+        { github_id: id },
+        process.env.ACCESS_SECRET,
+        { expiresIn: "1H" }
+      );
+      res.status(200).json({ accessToken });
+    } else {
       res.status(200).json({"member": "false"})
     }
-
-    const accessToken = jwt.sign(
-      { github_id: id },
-      process.env.ACCESS_SECRET,
-      { expiresIn: "1H" }
-    );
-    res.status(200).json({ accessToken });
   } catch (err) {
     console.log(
       "-------------------------------Error occurred in signin/get.js-------------------------------- \n",
